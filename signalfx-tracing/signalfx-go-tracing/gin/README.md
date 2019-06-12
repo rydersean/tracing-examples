@@ -3,13 +3,13 @@ This is an example of producing distributed traces using the [SignalFx Tracing L
 
 ## Prerequisite
 This example requires a running MongoDB instance that the server can access. You can start a docker container by running this command.
-```
+```sh
 $ docker run -d --name mongo -p 27017:27017 mongo
 ```
 
 ## Configuration
 A default set of configuration is included in [server/server.go](./server/server.go). Modify as needed before running. Note that you can choose MongoDB driver to use by changing `MongoDriver` config.
-```
+```go
 // server.go
 
 const (
@@ -32,7 +32,7 @@ const (
 
 ## Start Service
 To run this example locally and send traces to your available Smart Agent or Gateway, please clone this repository and from this directory do the following:
-```
+```sh
 $ cd server
 $ go get
 $ go run server.go
