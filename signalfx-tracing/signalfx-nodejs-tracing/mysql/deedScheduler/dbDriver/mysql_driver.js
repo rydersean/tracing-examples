@@ -10,7 +10,6 @@ async function addItem(deed, note, day) {
   const response = await new Promise((resolve, reject) =>{
     pool.query('INSERT INTO todos SET ?', newItem, (error, results)=> {
       if (error) {
-        console.log(error);
         reject(error);
       } else {
         const res = results.affectedRows;
@@ -105,7 +104,7 @@ async function viewDeed(deed, day, status) {
   const response = await new Promise((resolve, reject) => {
     pool.query(sqlQuery, (error, results, fields) => {
       if (error) {
-        throw (error);
+        reject (error);
       } else {
         resolve(results);
       }
